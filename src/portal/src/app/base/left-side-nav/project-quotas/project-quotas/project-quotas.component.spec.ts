@@ -11,6 +11,7 @@ import { EditProjectQuotasComponent } from './edit-project-quotas/edit-project-q
 import { QuotaService } from '../../../../../../ng-swagger-gen/services/quota.service';
 import { ProjectService } from '../../../../../../ng-swagger-gen/services/project.service';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
+import {baseHRefFactory, PATH_ROUTER} from "../../../../shared/units/utils";
 
 describe('ProjectQuotasComponent', () => {
     let spy: jasmine.Spy;
@@ -65,7 +66,7 @@ describe('ProjectQuotasComponent', () => {
             providers: [
                 { provide: ProjectService, useValue: fakedProjectService },
                 { provide: ErrorHandler, useValue: fakedErrorHandler },
-                { provide: APP_BASE_HREF, useValue: '/' },
+                { provide: APP_BASE_HREF, useFactory: baseHRefFactory },
                 { provide: Router, useValue: fakedRouter },
             ],
         }).compileComponents();

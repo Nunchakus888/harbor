@@ -22,6 +22,8 @@ import { AuthCheckGuard } from './shared/router-guard/auth-user-activate.service
 import { SignInGuard } from './shared/router-guard/sign-in-guard-activate.service';
 import { OidcGuard } from './shared/router-guard/oidc-guard-active.service';
 import { HarborRouteReuseStrategy } from './route-reuse-strategy/harbor-route-reuse-strategy';
+import { baseHRefFactory } from './shared/units/utils';
+import {APP_BASE_HREF} from "@angular/common";
 
 const harborRoutes: Routes = [
     { path: '', redirectTo: 'harbor', pathMatch: 'full' },
@@ -59,6 +61,7 @@ const harborRoutes: Routes = [
 @NgModule({
     providers: [
         { provide: RouteReuseStrategy, useClass: HarborRouteReuseStrategy },
+        { provide: APP_BASE_HREF, useValue: baseHRefFactory },
     ],
     imports: [
         RouterModule.forRoot(harborRoutes, {

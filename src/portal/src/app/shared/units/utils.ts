@@ -29,7 +29,20 @@ enum APILevels {
 /**
  * v1 base href
  */
+export const BASE_HOST = `${window.location.protocol}//${window.location.host}:${window.location.port}`;
+
+export const PATH_ROUTER = `/cluster-route`;
+
 export const V1_BASE_HREF = '/api' + APILevels.V1;
+
+export const baseHRefFactory = localStorage.getItem('pathname');
+// export const baseHRefFactory = '/cluster-roule/kuanfan_aicc_4090/hubconsole/';
+// export function baseHRefFactory(): string {
+//     const pathname = localStorage.getItem('pathname');
+//
+//     console.log('----pathname', pathname);
+//     return pathname;
+// }
 
 /**
  * Current base href

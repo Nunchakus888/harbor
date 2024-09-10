@@ -64,7 +64,6 @@ describe('AppComponent', () => {
             declarations: [AppComponent],
             imports: [SharedTestingModule],
             providers: [
-                { provide: APP_BASE_HREF, useValue: '/' },
                 { provide: CookieService, useValue: fakeCookieService },
                 { provide: SessionService, useValue: fakeSessionService },
                 { provide: AppConfigService, useValue: fakeAppConfigService },

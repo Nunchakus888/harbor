@@ -17,11 +17,12 @@ import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError as observableThrowError } from 'rxjs';
 import { Repository } from '../../../../../ng-swagger-gen/models/repository';
 import {
+    BASE_HOST,
     CURRENT_BASE_HREF,
     HTTP_GET_OPTIONS,
 } from '../../../shared/units/utils';
 
-export const topRepoEndpoint = CURRENT_BASE_HREF + '/repositories/top';
+export const topRepoEndpoint = BASE_HOST + CURRENT_BASE_HREF + '/repositories/top';
 /**
  * Declare service to handle the top repositories
  *
