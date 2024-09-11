@@ -33,16 +33,11 @@ export const BASE_HOST = `${window.location.protocol}//${window.location.host}:$
 
 export const PATH_ROUTER = `/cluster-route`;
 
+export const baseHRefFactory = localStorage.getItem('pathname') || '';
+
 export const V1_BASE_HREF = '/api' + APILevels.V1;
 
-export const baseHRefFactory = localStorage.getItem('pathname');
-// export const baseHRefFactory = '/cluster-roule/kuanfan_aicc_4090/hubconsole/';
-// export function baseHRefFactory(): string {
-//     const pathname = localStorage.getItem('pathname');
-//
-//     console.log('----pathname', pathname);
-//     return pathname;
-// }
+export const SIGN_IN_URL = '/c/login';
 
 /**
  * Current base href

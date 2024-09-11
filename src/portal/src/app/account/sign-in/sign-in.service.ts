@@ -15,9 +15,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Observable, throwError as observableThrowError } from 'rxjs';
-import { HTTP_FORM_OPTIONS } from '../../shared/units/utils';
+import { HTTP_FORM_OPTIONS, SIGN_IN_URL as signInUrl } from '../../shared/units/utils';
 import { SignInCredential } from './sign-in-credential';
-const signInUrl = '/c/login';
 /**
  *
  * Define a service to provide sign in methods

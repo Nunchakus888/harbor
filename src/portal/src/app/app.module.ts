@@ -40,8 +40,6 @@ import {
 import { ErrorHandler } from './shared/units/error-handler';
 import { MessageHandlerService } from './shared/services/message-handler.service';
 import { HarborTranslateLoaderService } from './services/harbor-translate-loader.service';
-import {APP_BASE_HREF} from "@angular/common";
-import {baseHRefFactory} from "./shared/units/utils";
 
 function initConfig(
     configService: AppConfigService,

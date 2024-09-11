@@ -9,6 +9,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { errorHandler } from '../shared/units/shared.utils';
+import { baseHRefFactory } from '../shared/units/utils';
 
 export const SAFE_METHODS: string[] = ['GET', 'HEAD', 'OPTIONS', 'TRACE'];
 
@@ -26,19 +27,28 @@ export class InterceptHttpService implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
         // Get the csrf token from localstorage
         const token = localStorage.getItem('__csrf');
-        if (token) {
-            // Clone the request and replace the original headers with
-            // cloned headers, updated with the csrf token.
-            // not for requests using safe methods
-            if (
-                request.method &&
-                SAFE_METHODS.indexOf(request.method.toUpperCase()) === -1
-            ) {
-                request = request.clone({
-                    headers: request.headers.set('X-Harbor-CSRF-Token', token),
-                });
+        // Clone the request and replace the original headers with
+        // cloned headers, updated with the csrf token.
+        // not for requests using safe methods
+
+        const params = {
+            url: `${baseHRefFactory}${request.url}`,
+        };
+
+        if (
+            request.method &&
+            SAFE_METHODS.indexOf(request.method.toUpperCase()) === -1
+        ) {
+            if (token) {
+                params['headers'] = request.headers.set(
+                    'X-Harbor-CSRF-Token',
+                    token
+                );
             }
         }
+
+        request = request.clone(params);
+
         return next
             .handle(request)
             .pipe(
