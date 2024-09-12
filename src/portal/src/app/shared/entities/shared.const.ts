@@ -232,7 +232,7 @@ export const REFRESH_TIME_DIFFERENCE = 10000;
 
 //
 
-export const DeFaultLang = 'en-us';
+export const DeFaultLang = 'zh-cn';
 export type SupportedLanguage = string;
 export const LANGUAGES = {
     'en-us': ['English', locale_en],

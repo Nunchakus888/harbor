@@ -113,7 +113,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.translate.addLangs(supportedLangs);
         this.translate.setDefaultLang(DeFaultLang);
         let selectedLang: SupportedLanguage;
-        const savedLang = localStorage.getItem(DEFAULT_LANG_LOCALSTORAGE_KEY);
+        const savedLang = '';
         if (isSupportedLanguage(savedLang)) {
             // If user has selected lang, then directly use it
             selectedLang = savedLang;

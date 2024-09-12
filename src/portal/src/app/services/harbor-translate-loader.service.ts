@@ -12,7 +12,7 @@ export class HarborTranslateLoaderService extends TranslateLoader {
         super();
     }
     getTranslation(lang: string): Observable<any> {
-        const prefix: string = 'i18n/lang/';
+        const prefix: string = '/i18n/lang/';
         let suffix: string = '-lang.json';
         if (environment && environment.buildTimestamp) {
             suffix += `?buildTimeStamp=${environment.buildTimestamp}`;
