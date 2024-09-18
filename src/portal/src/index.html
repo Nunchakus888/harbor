@@ -7,11 +7,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
         <script>
-            (function() {
-                var pathname = window.location.pathname;
+            (function () {
+                // match the /cluster-route/clusterName/projectName/ only
+                var pns =
+                    window.location.pathname.match(
+                        /\/cluster-.*\/[\w\-]*\/[\w\-]*\//
+                    ) || [];
+                var pn = pns[0];
+                if (pn) {
+                    localStorage.setItem(
+                        'pathname',
+                        pn.substring(0, pn.lastIndexOf('/'))
+                    );
 
-                if (pathname !== '/') {
-                    localStorage.setItem('pathname', pathname.substring(0, pathname.lastIndexOf('/')));
+                    console.log('--->', pn.substring(0, pn.lastIndexOf('/')));
                 }
             })();
         </script>
