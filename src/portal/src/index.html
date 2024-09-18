@@ -15,12 +15,15 @@
                     ) || [];
                 var pn = pns[0];
                 if (pn) {
+                    const [empty, center, edge, app, others] = pn.split('/');
                     localStorage.setItem(
                         'pathname',
-                        pn.substring(0, pn.lastIndexOf('/'))
+                        `/${center}/${edge}/${app}/`
                     );
-
-                    console.log('--->', pn.substring(0, pn.lastIndexOf('/')));
+                    if (others) {
+                        location.pathname = `/${center}/${edge}/${app}/`;
+                    }
+                    console.log('--->', `/${center}/${edge}/${app}/`);
                 }
             })();
         </script>
